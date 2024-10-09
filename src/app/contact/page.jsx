@@ -6,7 +6,7 @@ const page = () => {
     <div>
       <h1>contact page</h1>
       {/* <h1 classname="flex justify-center">Form</h1> */}
-      <form>
+      <form className="from-orange-100">
         <input type="text" placeholder="enter your name" />
         <input type="email" placeholde="enter your email" />
         <input type="number" placeholder="enter your number" />

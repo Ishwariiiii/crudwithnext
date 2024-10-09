@@ -7,7 +7,6 @@ import { createUser, deleteUser, editUser } from "@/Redux/dataSlice";
 
 
 const page = () => {
-
   const [newUser, setNewUser] = useState({
     name: "",
     email: ""
@@ -16,7 +15,6 @@ const page = () => {
   const router = useRouter();
   const dispatch = useDispatch()
   const { getAllUser } = useSelector(state => state.user)
-
 
   const handleEdit = (user, index) => {
     // console.log(user, index);
@@ -28,12 +26,13 @@ const page = () => {
     const { name, value } = e.target
     setNewUser({ ...newUser, [name]: value })
   }
+
   const saveData = (e) => {
     e.preventDefault()
-    const name=newUser.name
-    const email=newUser.email
+    const name = newUser.name
+    const email = newUser.email
     // console.log(newUser)
-    dispatch(createUser({name,email}))
+    dispatch(createUser({ name, email }))
   }
 
   const handleDelete = (index) => {
@@ -43,8 +42,9 @@ const page = () => {
 
   return (
     <div>
-      <form onSubmit={saveData}>
-        <input
+      <form onSubmit={saveData} className="flex justify-center flex-col w-64">
+        <label>Name : </label>
+        <input 
           type="text"
           name="name"
           value={newUser.name}
@@ -53,6 +53,7 @@ const page = () => {
           className="border-solid border-2 border-sky-500"
         />
         &nbsp;
+        <label>Email : </label>
         <input
           type="text"
           name="email"
@@ -80,16 +81,18 @@ const page = () => {
               <td>{item.name}</td>
               <td>{item.email}</td>
               <td>
-                <button onClick={() => handleEdit(item, index)}>Edit</button>{" "}
-                &nbsp;
-                <button onClick={() => handleDelete(index)}>Delete</button>
+                <button onClick={() => handleEdit(item, index)}>Edit</button>{" "}  
+              </td>
+              <td>
+              <button onClick={() => handleDelete(index)}>Delete</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
-export default page;
+export default page
+

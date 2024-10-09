@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 const userSlice = createSlice({
     name: "user",
     initialState: {
@@ -27,14 +28,15 @@ const userSlice = createSlice({
                 getAllUser: action.payload
             }
         },
+
         createUser: (state, action) => {
           state.getAllUser=[...state.getAllUser,action.payload]
         },
+
         deleteUser: (state, action) => {
-            const indexDelete = action.payload
             return {
                 ...state,
-                getAllUser: state.getAllUser.filter((user, index) => index !== indexDelete)
+                getAllUser: state.getAllUser.filter((user, index) => index !== action.payload)
             }
         },
         editUser: (state, action) => {
