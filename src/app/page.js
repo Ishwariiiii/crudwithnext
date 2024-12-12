@@ -10,14 +10,10 @@ const Page = () => {
       <nav className="flex justify-center bg-gray-900">
         <ul className="flex justify-center space-x-5 items-center text-center h-16">
           <li className="text-center">
-            <Link href="/users">Users</Link>
+            <Link href="/users">Go to Users</Link>
           </li>
-          <li>
-            <Link href="/about">About</Link>
-          </li>
-          <li>
-            <Link href="/contact">Contact</Link>
-          </li>
+        
+        
         </ul>
       </nav>
     </div>
